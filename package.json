@@ -1,0 +1,33 @@
+{
+  "name": "curr-culo-express-aos-2025-josegabriel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JOTAGGE/Curr-culo-express-aos-2025-josegabriel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JOTAGGE/Curr-culo-express-aos-2025-josegabriel/issues"
+  },
+  "homepage": "https://github.com/JOTAGGE/Curr-culo-express-aos-2025-josegabriel#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/node": "^7.28.0",
+    "@babel/preset-env": "^7.28.5",
+    "nodemon": "^3.1.10"
+  }
+}
