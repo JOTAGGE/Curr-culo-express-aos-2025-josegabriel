@@ -1,5 +1,4 @@
-// /src/index.js - VERSÃO DE COMBATE ADAPTATIVA FINAL
-
+import app from './src/index.js';
 import 'dotenv/config'; // Mantenha no topo. Garante que as variáveis sejam lidas.
 import cors from 'cors';
 import express from 'express';
