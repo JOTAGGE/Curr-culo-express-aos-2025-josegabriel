@@ -1,4 +1,3 @@
-// /src/routes/habilidade.js
 import { Router } from 'express';
 import models from '../models';
 

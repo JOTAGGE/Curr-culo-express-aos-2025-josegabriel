@@ -39,12 +39,12 @@ const startServer = async () => {
         
         const op1 = await models.Pessoa.create({
           nome: "José Gabriel",
-          email: "jose.gabriel@dossie.com",
+          email: "jg.barros.dsantos@gmail.com",
           posicao: "Operador de Campo (Full-Stack)"
         });
         await models.Habilidade.create({ nome: "Node.js (Express)", proficiencia: "Avançado", pessoaId: op1.id });
         await models.Habilidade.create({ nome: "React", proficiencia: "Intermediário", pessoaId: op1.id });
-        await models.Experiencia.create({ empresa: "AOS", cargo: "Desenvolvedor de API", descricao: "Construiu APIs RESTful sob pressão.", pessoaId: op1.id });
+        await models.Experiencia.create({ empresa: "UNICAP", cargo: "Desenvolvedor de API", descricao: "Construiu APIs RESTful sob pressão.", pessoaId: op1.id });
 
         const op2 = await models.Pessoa.create({
           nome: "Dmitry Ivanov",

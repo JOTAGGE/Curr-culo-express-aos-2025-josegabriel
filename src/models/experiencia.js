@@ -1,4 +1,3 @@
-// /src/models/experiencia.js
 const getExperienciaModel = (sequelize, { DataTypes }) => {
   const Experiencia = sequelize.define('experiencia', {
     empresa: {

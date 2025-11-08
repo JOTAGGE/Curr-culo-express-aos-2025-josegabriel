@@ -1,4 +1,3 @@
-// /src/models/habilidade.js
 const getHabilidadeModel = (sequelize, { DataTypes }) => {
   const Habilidade = sequelize.define('habilidade', {
     nome: {

@@ -1,4 +1,3 @@
-// /src/models/index.js
 import Sequelize from 'sequelize';
 import getPessoaModel from './pessoa';
 import getHabilidadeModel from './habilidade';

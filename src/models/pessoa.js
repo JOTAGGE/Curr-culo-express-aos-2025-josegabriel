@@ -1,5 +1,3 @@
-// /src/models/pessoa.js
-
 // Esta função define o modelo para o Sequelize
 const getPessoaModel = (sequelize, { DataTypes }) => {
   const Pessoa = sequelize.define('pessoa', {
