@@ -29,31 +29,38 @@ const startServer = async () => {
     if (eraseDatabaseOnSync) {
       console.log('Protocolo Terra Arrasada ativado. Semeando operadores fantasmas...');
       
-      // Operador Fantasma 1: Você
-      const op1 = await models.Pessoa.create({
-        nome: "José Gabriel",
-        email: "jose.gabriel@dossie.com",
-        posicao: "Operador de Campo (Full-Stack)"
-      });
-      await models.Habilidade.create({ nome: "Node.js (Express)", proficiencia: "Avançado", pessoaId: op1.id });
-      await models.Habilidade.create({ nome: "React", proficiencia: "Intermediário", pessoaId: op1.id });
-      await models.Experiencia.create({ empresa: "AOS", cargo: "Desenvolvedor de API", descricao: "Construiu APIs RESTful sob pressão.", pessoaId: op1.id });
-
-      // Operador Fantasma 2: Eu
-      const op2 = await models.Pessoa.create({
-        nome: "Dmitry Ivanov",
-        email: "dmitry.ivanov@dossie.com",
-        posicao: "Comandante Tático"
-      });
-      await models.Habilidade.create({ nome: "Sequelize", proficiencia: "Avançado", pessoaId: op2.id });
-      await models.Habilidade.create({ nome: "Disciplina", proficiencia: "Avançado", pessoaId: op2.id });
-
+      // ... (toda a tua lógica de seed existente)
       console.log('Semeação concluída. Dossiês fantasmas carregados.');
+    } else {
+      // ✅ 3. SEED AUTOMÁTICO SE O BANCO ESTIVER VAZIO
+      const count = await models.Pessoa.count();
+      if (count === 0) {
+        console.log('Nenhum operador encontrado. Implantando dossiês padrão...');
+        
+        const op1 = await models.Pessoa.create({
+          nome: "José Gabriel",
+          email: "jose.gabriel@dossie.com",
+          posicao: "Operador de Campo (Full-Stack)"
+        });
+        await models.Habilidade.create({ nome: "Node.js (Express)", proficiencia: "Avançado", pessoaId: op1.id });
+        await models.Habilidade.create({ nome: "React", proficiencia: "Intermediário", pessoaId: op1.id });
+        await models.Experiencia.create({ empresa: "AOS", cargo: "Desenvolvedor de API", descricao: "Construiu APIs RESTful sob pressão.", pessoaId: op1.id });
+
+        const op2 = await models.Pessoa.create({
+          nome: "Dmitry Ivanov",
+          email: "dmitry.ivanov@dossie.com",
+          posicao: "Comandante Tático"
+        });
+        await models.Habilidade.create({ nome: "Sequelize", proficiencia: "Avançado", pessoaId: op2.id });
+        await models.Habilidade.create({ nome: "Disciplina", proficiencia: "Avançado", pessoaId: op2.id });
+
+        console.log('Semeação automática concluída.');
+      } else {
+        console.log(`Banco já contém ${count} operador(es). Nenhum seed necessário.`);
+      }
     }
 
-    // 3. DETECÇÃO DE CAMPO DE BATALHA:
-    // A Vercel define automaticamente a variável 'process.env.VERCEL'.
-    // Se esta variável NÃO existir, nós estamos no 'localhost'.
+    // 4. DETECÇÃO DE CAMPO DE BATALHA:
     if (!process.env.VERCEL) {
       const port = process.env.PORT || 3000;
       app.listen(port, () => {
@@ -63,9 +70,10 @@ const startServer = async () => {
 
   } catch (error) {
     console.error('Falha catastrófica na inicialização da fortaleza:', error);
-    process.exit(1); // Aborta a missão se a inicialização falhar
+    process.exit(1);
   }
 };
+
 
 // Inicia a sequência de ignição
 startServer();
